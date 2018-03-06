@@ -10,6 +10,24 @@ namespace ObjectOverrides
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with System.Object *****\n");
+            Person p1 = new Person();
+
+            //inherited members of System.Object
+            Console.WriteLine("ToString: {0}", p1.ToString());
+            Console.WriteLine("Hash code: {0}", p1.GetHashCode());
+            Console.WriteLine("Type: {0}", p1.GetType());
+
+            // Make some references to p1.
+            Person p2 = p1;
+            object o = p2;
+
+            // Are the references pointing to the same object in memory?
+            if (o.Equals(p1) && p2.Equals(o))
+            {
+                Console.WriteLine("Same instnce!");
+            }
+            Console.ReadLine();
         }
     }
 }
