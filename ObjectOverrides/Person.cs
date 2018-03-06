@@ -12,6 +12,8 @@ namespace ObjectOverrides
         public string LastName { get; set; }
         public int Age { get; set; }
 
+        public string SSN { get; set; } 
+
         public Person(string fName, string lName, int personAge)
         {
             FirstName = fName;
@@ -21,6 +23,40 @@ namespace ObjectOverrides
 
         public Person()
         {
+        }
+
+        public override string ToString()
+        {
+            string myState;
+            myState = string.Format("[First Name: {0}; Last name: {1}; Age: {2}]", FirstName, LastName, Age);
+            return myState;
+        }
+
+        public override bool Equals(object obj)
+        {
+            //if (obj is Person && obj != null)
+            //{
+            //    Person temp;
+            //    temp = (Person) obj;
+            //    if (temp.FirstName == this.FirstName
+            //        && temp.LastName == this.LastName
+            //        && temp.Age == this.Age)
+            //    {
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+            //return false;
+
+            return obj.ToString() == this.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return SSN.GetHashCode();
         }
     }
 }
