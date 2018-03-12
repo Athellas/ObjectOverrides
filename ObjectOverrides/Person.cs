@@ -56,7 +56,7 @@ namespace ObjectOverrides
 
         public override int GetHashCode()
         {
-            return SSN.GetHashCode();
+            return this.ToString().GetHashCode();
         }
     }
 }
